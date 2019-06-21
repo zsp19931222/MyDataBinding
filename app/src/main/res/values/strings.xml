@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyDataBinding</string>
+    <string name="name">姓名:</string>
+    <string name="age">年龄:</string>
+</resources>

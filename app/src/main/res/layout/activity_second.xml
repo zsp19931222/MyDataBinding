@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- data 标签中可以有任意数量的 variable 标签。
+        这些变量可以使Java中的任意数据类型，
+        每个 variable 标签描述了会在 binding 表达式中使用的属性。 -->
+       <import type="java.util.Map" />
+        <import type="java.util.List" />
+        <variable
+            name="str"
+            type="String" />
+
+        <variable
+            name="age"
+            type="int" />
+
+        <variable
+            name="list"
+            type="List&lt;String&gt;" />
+
+        <variable
+            name="map"
+            type="Map&lt;String,Object&gt;" />
+
+        <variable
+            name="array"
+            type="String[]" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{str}" />
+        <!--Data Binding和Java一样，java.lang包里的类，
+        我们是可以不用导入包的，也就是说，
+        java基础类型都是不用导包的。
+        注意：android:text设置int类型的值一定要转化为String类型，
+        否则系统会认为是资源文件id，就会出错*-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(age)}" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{list.get(0)}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{map.get("key")}'/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{array[0]}'/>
+    </LinearLayout>
+</layout>
